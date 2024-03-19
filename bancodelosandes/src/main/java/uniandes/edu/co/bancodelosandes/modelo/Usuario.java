@@ -2,6 +2,8 @@ package uniandes.edu.co.bancodelosandes.modelo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,6 +13,8 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="USUARIOS")
 public class Usuario {
+
+    @Enumerated(EnumType.STRING)
     private TipoIdentificacion tipoIdentificacion;
     @Id
     @Column(name = "NUMIDENTIFICACION")

@@ -30,7 +30,7 @@ public class OperacionesCuentaController {
 
     @PostMapping("operacionCuenta/new/save")
     public String operacionCuentaGuardar(@ModelAttribute OperacionCuenta operacionCuenta) {
-        operacionCuentaRepository.insertarOperacionCuenta(operacionCuenta.getId(), operacionCuenta.getTipoOperacionCuenta(), operacionCuenta.getCuenta(), operacionCuenta.getOperacionBancaria());
+        operacionCuentaRepository.insertarOperacionCuenta(operacionCuenta.getId(), operacionCuenta.getTipoOperacionCuenta(), operacionCuenta.getNumCuenta(), operacionCuenta.getOperacionBancaria());
         return "redirect:/operacionesCuenta";
     }
 
@@ -47,7 +47,7 @@ public class OperacionesCuentaController {
 
     @PostMapping("/operacionesCuenta/{id}/save")
     public String operacionCuentaEditarGuardar(@PathVariable("id") Long id, @ModelAttribute OperacionCuenta operacionCuenta) {
-        operacionCuentaRepository.actualizarOperacionCuenta(operacionCuenta.getTipoOperacionCuenta(), operacionCuenta.getCuenta(), operacionCuenta.getOperacionBancaria(), id);
+        operacionCuentaRepository.actualizarOperacionCuenta(operacionCuenta.getTipoOperacionCuenta(), operacionCuenta.getNumCuenta(), operacionCuenta.getOperacionBancaria(), id);
         return "redirect:/operacionesCuenta";
     }
 

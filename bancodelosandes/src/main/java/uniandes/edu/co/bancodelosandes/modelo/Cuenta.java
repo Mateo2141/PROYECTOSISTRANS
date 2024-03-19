@@ -50,6 +50,10 @@ public class Cuenta {
         return numCuenta;
     }
 
+    public Cliente getNumIdentificacion() {
+        return numIdentificacion;
+    }
+
     public TipoCuenta getTipoCuenta() {
         return tipoCuenta;
     }
@@ -100,6 +104,10 @@ public class Cuenta {
 
     public void setCliente(Cliente cliente) {
         this.numIdentificacion = cliente;
+    }
+
+    public void setNumIdentificacion(Cliente numIdentificacion) {
+        this.numIdentificacion = numIdentificacion;
     }
 
 }

@@ -28,7 +28,7 @@ public class OperacionesPrestamoController {
         return "operacionPrestamoNuevo";
     }
 
-    @PostMapping("operacionPrestamo/new/save")
+    @PostMapping("/operacionPrestamo/new/save")
     public String operacionPrestamoGuardar(@ModelAttribute OPeracionPrestamo operacionPrestamo) {
         operacionesPrestamoRepository.insertarOperacionPrestamo(operacionPrestamo.getId(), operacionPrestamo.getTipoOperacion(), operacionPrestamo.getPrestamo(), operacionPrestamo.getOperacionBancaria());
         return "redirect:/operacionesPrestamo";
@@ -45,7 +45,7 @@ public class OperacionesPrestamoController {
         }
     }
 
-    @PostMapping("/operacionesPrestamo/{id}/save")
+    @PostMapping("/operacionesPrestamo/{id}/edit/save")
     public String operacionPrestamoEditarGuardar(@PathVariable("id") Long id, @ModelAttribute OPeracionPrestamo operacionPrestamo) {
         operacionesPrestamoRepository.actualizarOperacionPrestamo(operacionPrestamo.getTipoOperacion(), operacionPrestamo.getPrestamo(), operacionPrestamo.getOperacionBancaria(), id);
         return "redirect:/operacionesPrestamo";

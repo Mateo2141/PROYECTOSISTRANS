@@ -47,7 +47,7 @@ public class OperacionCuenta {
         return tipoOperacionCuenta;
     }
 
-    public Cuenta getCuenta() {
+    public Cuenta getNumCuenta() {
         return numCuenta;
     }
 
@@ -63,7 +63,7 @@ public class OperacionCuenta {
         this.tipoOperacionCuenta = tipoOperacionCuenta;
     }
 
-    public void setCuenta(Cuenta cuenta) {
+    public void setNumCuenta(Cuenta cuenta) {
         this.numCuenta = cuenta;
     }
 

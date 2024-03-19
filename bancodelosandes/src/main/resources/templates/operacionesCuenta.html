@@ -25,8 +25,8 @@
                 <tr>
                     <td th:text="${operacioncuenta.id}"></td>
                     <td th:text="${operacioncuenta.tipoOperacionCuenta}"></td>
-                    <td th:text="${operacioncuenta.numCuenta}"></td>
-                    <td th:text="${operacioncuenta.operacionBancaria}"></td>
+                    <td th:text="${operacioncuenta.numCuenta.numCuenta}"></td>
+                    <td th:text="${operacioncuenta.operacionBancaria.id}"></td>
                     <td>
                         <a th:href="@{operacionesCuenta/{id}/edit(id=${operacioncuenta.id})}">
                             Editar
