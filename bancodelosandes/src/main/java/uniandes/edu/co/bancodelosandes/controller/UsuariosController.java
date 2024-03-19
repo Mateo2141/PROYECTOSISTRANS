@@ -36,7 +36,7 @@ public class UsuariosController {
     }
 
     @GetMapping("/usuarios/{numIdentificacion}")
-    public String usuarioEditarForm(@PathVariable("numIdentificacion") Integer numIdentificacion, Model model) {
+    public String usuarioEditarForm(@PathVariable("numIdentificacion") String numIdentificacion, Model model) {
         Usuario usuario = usuarioRepository.darUsuario(numIdentificacion);
         if (usuario != null) {
             model.addAttribute("usuario", usuario);
@@ -47,13 +47,13 @@ public class UsuariosController {
     }
 
     @PostMapping("/usuarios/{numIdentificacion}/save")
-    public String usuarioEditarGuardar(@PathVariable("numIdentificacion") Integer numIdentificacion, @ModelAttribute Usuario usuario) {
+    public String usuarioEditarGuardar(@PathVariable("numIdentificacion") String numIdentificacion, @ModelAttribute Usuario usuario) {
         usuarioRepository.actualizarUsuario(usuario.getContrasena(), usuario.getNombre(), usuario.getApellido(), usuario.getNacionalidad(), usuario.getDireccion(), usuario.getEmail(), usuario.getTelefono(), usuario.getCiudad(), usuario.getDepartamento(), usuario.getCodigoPostal(), numIdentificacion);
         return "redirect:/usuarios";
     }
     
     @GetMapping("/usuarios/{numIdentificacion}/delete")
-    public String usuarioEliminar(@PathVariable("numIdentificacion") Integer numIdentificacion) {
+    public String usuarioEliminar(@PathVariable("numIdentificacion") String numIdentificacion) {
         usuarioRepository.eliminarUsuario(numIdentificacion);
         return "redirect:/usuarios";
     }

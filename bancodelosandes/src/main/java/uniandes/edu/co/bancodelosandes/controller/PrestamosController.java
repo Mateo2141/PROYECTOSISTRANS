@@ -34,7 +34,7 @@ public class PrestamosController {
         return "redirect:/prestamos";
     }
 
-    @GetMapping("/prestamos/{id}")
+    @GetMapping("/prestamos/{id}/edit")
     public String prestamoEditarForm(@PathVariable("id") Long id, Model model) {
         Prestamo prestamo = prestamosRepository.darPrestamo(id);
         if (prestamo != null) {

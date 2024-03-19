@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Lista de Clientes</title>
+    <title>Lista de empleados</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
     <script th:src="@{/css/jquery.min.js}"></script>
     <script th:src="@{/css/bootstrap.min.js}"></script>
@@ -10,27 +10,27 @@
 
 <body>
     <div class="text-center">
-        <h1>Lista de Clientes</h1>
+        <h1>Lista de empleados</h1>
         <table class="table table-hover table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>Numero De Identificacion</th>
-                    <th>Tipo De Persona</th>
-                    <th>Ubicacion Geográfica</th>
+                    <th>Tipo de Empleado</th>
+                    <th>Número de Identificacion</th>
+                    <th>Oficina</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <th:block th:each="cliente : ${clientes}">
+            <th:block th:each="empleado : ${empleados}">
                 <tr>
-                    <td th:text="${cliente.numIdentificacion}"></td>
-                    <td th:text="${cliente.tipoPersona}"></td>
-                    <td th:text="${cliente.ubicacionGeografica}"></td>
+                    <td th:text="${empleado.tipoEmpleado}"></td>
+                    <td th:text="${empleado.numIdentificacion}"></td>
+                    <td th:text="${empleado.oficina}"></td>
                     <td>
-                        <a th:href="@{clientes/{numIdentificacion}/edit(numIdentificacion=${cliente.numIdentificacion})}">
+                        <a th:href="@{empleados/{numIdentificacion}/edit(numIdentificacion=${empleado.numIdentificacion})}">
                             Editar
                         </a>
-                        <a th:href="@{clientes/{numIdentificacion}/delete(numIdentificacion=${cliente.numIdentificacion})}"
-                            onclick="return confirm('¿Estás seguro de borrar este cliente?')">
+                        <a th:href="@{empleados/{numIdentificacion}/delete(numIdentificacion=${empleado.numIdentificacion})}"
+                            onclick="return confirm('¿Estás seguro de borrar este empleado?')">
                             Borrar
                         </a>
                     </td>

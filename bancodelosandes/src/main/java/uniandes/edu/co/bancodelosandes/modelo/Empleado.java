@@ -19,7 +19,7 @@ public class Empleado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer numIdentificacion;
+    private String numIdentificacion;
 
     @ManyToOne
     @JoinColumn(name = "oficina", referencedColumnName = "nombre")
@@ -37,7 +37,7 @@ public class Empleado {
         this.oficina = oficina;
     }
 
-    public Integer getNumIdentificacion() {
+    public String getNumIdentificacion() {
         return numIdentificacion;
     }
 
@@ -50,7 +50,7 @@ public class Empleado {
         return usuario;
     }
 
-    public void setNumIdentificacion(Integer numIdentificacion) {
+    public void setNumIdentificacion(String numIdentificacion) {
         this.numIdentificacion = numIdentificacion;
     }
 
