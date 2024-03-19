@@ -13,13 +13,13 @@ import jakarta.persistence.Table;
 @Table(name="PUNTOSATENCION")
 public class PuntoAtencion {
     @Id
-    @Column(name = "UBICACIONGEOGRAFICA")
-    private String ubicacionGeografica;
+    @Column(name = "UBICACION_GEOGRAFICA")
+    private String ubicacion_Geografica;
 
     private Integer operacionesRealizadas;
 
     @Enumerated(EnumType.STRING)
-    private TipoPuntoAtencion tipoPuntoAtencion;
+    private TipoPuntoAtencion tipo_Punto_Atencion;
 
     @ManyToOne
     @JoinColumn(name = "oficinaName", referencedColumnName = "nombre")
@@ -30,12 +30,12 @@ public class PuntoAtencion {
 
     public PuntoAtencion(Integer operacionesRealizadas, TipoPuntoAtencion tipoPuntoAtencion, Oficina oficina) {
         this.operacionesRealizadas = operacionesRealizadas;
-        this.tipoPuntoAtencion = tipoPuntoAtencion;
+        this.tipo_Punto_Atencion = tipoPuntoAtencion;
         this.oficinaName = oficina;
     }
 
     public String getUbicacionGeografica() {
-        return ubicacionGeografica;
+        return ubicacion_Geografica;
     }
 
     public Integer getOperacionesRealizadas() {
@@ -43,15 +43,16 @@ public class PuntoAtencion {
     }
 
     public TipoPuntoAtencion getTipoPuntoAtencion() {
-        return tipoPuntoAtencion;
+        return tipo_Punto_Atencion;
     }
 
-    public Oficina getOficina() {
+    public Oficina getOficinaName() {
         return oficinaName;
     }
 
+    
     public void setUbicacionGeografica(String ubicacionGeografica) {
-        this.ubicacionGeografica = ubicacionGeografica;
+        this.ubicacion_Geografica = ubicacionGeografica;
     }
 
     public void setOperacionesRealizadas(Integer operacionesRealizadas) {
@@ -59,10 +60,10 @@ public class PuntoAtencion {
     }
 
     public void setTipoPuntoAtencion(TipoPuntoAtencion tipoPuntoAtencion) {
-        this.tipoPuntoAtencion = tipoPuntoAtencion;
+        this.tipo_Punto_Atencion = tipoPuntoAtencion;
     }
 
-    public void setOficina(Oficina oficina) {
+    public void setOficinaName(Oficina oficina) {
         this.oficinaName = oficina;
     }
 }

@@ -34,7 +34,7 @@ public class OperacionesPrestamoController {
         return "redirect:/operacionesPrestamo";
     }
 
-    @GetMapping("/operacionesPrestamo/{id}")
+    @GetMapping("/operacionesPrestamo/{id}/edit")
     public String operacionPrestamoEditarForm(@PathVariable("id") Long id, Model model) {
         OPeracionPrestamo operacionPrestamo = operacionesPrestamoRepository.darOperacionPrestamo(id);
         if (operacionPrestamo != null) {

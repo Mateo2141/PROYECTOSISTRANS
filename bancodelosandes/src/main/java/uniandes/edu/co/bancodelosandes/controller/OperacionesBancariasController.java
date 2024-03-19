@@ -30,11 +30,11 @@ public class OperacionesBancariasController {
 
     @PostMapping("operacionBancaria/new/save")
     public String operacionBancariaGuardar(@ModelAttribute OperacionBancaria operacionBancaria) {
-        operacionBancariaRepository.insertarOperacionBancaria(operacionBancaria.getId(), operacionBancaria.getMonto(), operacionBancaria.getFecha(), operacionBancaria.getHora(), operacionBancaria.getubicacionGeografica());
+        operacionBancariaRepository.insertarOperacionBancaria(operacionBancaria.getId(), operacionBancaria.getMonto(), operacionBancaria.getFecha(), operacionBancaria.getHora(), operacionBancaria.getUbicacionGeografica());
         return "redirect:/operacionesBancarias";
     }
 
-    @GetMapping("/operacionesBancarias/{id}")
+    @GetMapping("/operacionesBancarias/{id}/edit")
     public String operacionBancariaEditarForm(@PathVariable("id") Long id, Model model) {
         OperacionBancaria operacionBancaria = operacionBancariaRepository.darOperacionBancaria(id);
         if (operacionBancaria != null) {
@@ -47,7 +47,7 @@ public class OperacionesBancariasController {
 
     @PostMapping("/operacionesBancarias/{id}/save")
     public String operacionBancariaEditarGuardar(@PathVariable("id") Long id, @ModelAttribute OperacionBancaria operacionBancaria) {
-        operacionBancariaRepository.actualizarOperacionBancaria(operacionBancaria.getMonto(), operacionBancaria.getFecha(), operacionBancaria.getHora(), operacionBancaria.getubicacionGeografica(), id);
+        operacionBancariaRepository.actualizarOperacionBancaria(operacionBancaria.getMonto(), operacionBancaria.getFecha(), operacionBancaria.getHora(), operacionBancaria.getUbicacionGeografica(), id);
         return "redirect:/operacionesBancarias";
     }
 

@@ -35,8 +35,8 @@ public class EmpleadosController {
         return "redirect:/empleados";
     }
 
-    @GetMapping("/empleados/{numIdentificacion}")
-    public String empleadoEditarForm(@PathVariable("numIdentificacion") Integer numIdentificacion, Model model) {
+    @GetMapping("/empleados/{numIdentificacion}/edit")
+    public String empleadoEditarForm(@PathVariable("numIdentificacion") String numIdentificacion, Model model) {
         Empleado empleado = empleadoRepository.darEmpleado(numIdentificacion);
         if (empleado != null) {
             model.addAttribute("empleado", empleado);
@@ -47,13 +47,13 @@ public class EmpleadosController {
     }
 
     @PostMapping("/empleados/{numIdentificacion}/save")
-    public String empleadoEditarGuardar(@PathVariable("numIdentificacion") Integer numIdentificacion, @ModelAttribute Empleado empleado) {
+    public String empleadoEditarGuardar(@PathVariable("numIdentificacion") String numIdentificacion, @ModelAttribute Empleado empleado) {
         empleadoRepository.actualizarEmpleado(empleado.getTipoEmpleado(), empleado.getOficina(), numIdentificacion);
         return "redirect:/empleados";
     }
 
     @GetMapping("/empleados/{numIdentificacion}/delete")
-    public String empleadoEliminar(@PathVariable("numIdentificacion") Integer numIdentificacion) {
+    public String empleadoEliminar(@PathVariable("numIdentificacion") String numIdentificacion) {
         empleadoRepository.eliminarEmpleado(numIdentificacion);
         return "redirect:/empleados";
     }

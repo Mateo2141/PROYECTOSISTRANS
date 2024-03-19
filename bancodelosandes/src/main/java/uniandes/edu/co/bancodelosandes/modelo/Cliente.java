@@ -25,7 +25,7 @@ public class Cliente {
     private TipoPersona tipoPersona;
 
     @ManyToOne
-    @JoinColumn(name = "ubicacionGeografica", referencedColumnName = "ubicacionGeografica")
+    @JoinColumn(name = "ubicacionGeografica", referencedColumnName = "ubicacion_Geografica")
     private PuntoAtencion ubicacionGeografica;
 
     @OneToOne

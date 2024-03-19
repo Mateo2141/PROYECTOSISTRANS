@@ -15,7 +15,7 @@ public class Usuario {
     @Id
     @Column(name = "NUMIDENTIFICACION")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer numIdentificacion;
+    private String numIdentificacion;
     
     private String contrasena;
     private String nombre;
@@ -23,12 +23,12 @@ public class Usuario {
     private String nacionalidad;
     private String direccion;
     private String email;
-    private Integer telefono;
+    private String telefono;
     private String ciudad;
     private String departamento;
     private Integer codigoPostal;
 
-    public Usuario(TipoIdentificacion tipoIdentificacion, String contrasena, String nombre, String apellido, String nacionalidad, String direccion, String email, Integer telefono, String ciudad, String departamento, Integer codigoPostal) {
+    public Usuario(TipoIdentificacion tipoIdentificacion, String contrasena, String nombre, String apellido, String nacionalidad, String direccion, String email, String telefono, String ciudad, String departamento, Integer codigoPostal) {
         this.tipoIdentificacion = tipoIdentificacion;
         this.contrasena = contrasena;
         this.nombre = nombre;
@@ -50,7 +50,7 @@ public class Usuario {
         return tipoIdentificacion;
     }
 
-    public Integer getNumIdentificacion() {
+    public String getNumIdentificacion() {
         return numIdentificacion;
     }
 
@@ -78,7 +78,7 @@ public class Usuario {
         return email;
     }
 
-    public Integer getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -98,7 +98,7 @@ public class Usuario {
         this.tipoIdentificacion = tipoIdentificacion;
     }
 
-    public void setNumIdentificacion(Integer numIdentificacion) {
+    public void setNumIdentificacion(String numIdentificacion) {
         this.numIdentificacion = numIdentificacion;
     }
 
@@ -126,7 +126,7 @@ public class Usuario {
         this.email = email;
     }
 
-    public void setTelefono(Integer telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

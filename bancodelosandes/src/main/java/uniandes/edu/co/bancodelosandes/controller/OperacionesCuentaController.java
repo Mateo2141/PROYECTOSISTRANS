@@ -34,7 +34,7 @@ public class OperacionesCuentaController {
         return "redirect:/operacionesCuenta";
     }
 
-    @GetMapping("/operacionesCuenta/{id}")
+    @GetMapping("/operacionesCuenta/{id}/edit")
     public String operacionCuentaEditarForm(@PathVariable("id") Long id, Model model) {
         OperacionCuenta operacionCuenta = operacionCuentaRepository.darOperacionCuenta(id);
         if (operacionCuenta != null) {

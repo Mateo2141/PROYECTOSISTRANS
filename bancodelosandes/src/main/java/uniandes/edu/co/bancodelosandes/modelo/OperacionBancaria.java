@@ -24,7 +24,7 @@ public class OperacionBancaria {
     private Time hora;
 
     @ManyToOne
-    @JoinColumn(name = "ubicacionGeografica", referencedColumnName = "ubicacionGeografica")
+    @JoinColumn(name = "ubicacionGeografica", referencedColumnName = "ubicacion_Geografica")
     private PuntoAtencion ubicacionGeografica;
 
     public OperacionBancaria()
@@ -53,7 +53,7 @@ public class OperacionBancaria {
         return hora;
     }
 
-    public PuntoAtencion getubicacionGeografica() {
+    public PuntoAtencion getUbicacionGeografica() {
         return ubicacionGeografica;
     }
 

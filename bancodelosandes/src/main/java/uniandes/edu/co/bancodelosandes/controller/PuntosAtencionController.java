@@ -31,11 +31,11 @@ public class PuntosAtencionController {
 
     @PostMapping("puntoAtencion/new/save")
     public String puntoAtencionGuardar(@ModelAttribute PuntoAtencion puntoAtencion) {
-        puntosAtencionRepository.insertarPuntoAtencion(puntoAtencion.getUbicacionGeografica(), puntoAtencion.getOperacionesRealizadas(), puntoAtencion.getTipoPuntoAtencion(), puntoAtencion.getOficina());
+        puntosAtencionRepository.insertarPuntoAtencion(puntoAtencion.getUbicacionGeografica(), puntoAtencion.getOperacionesRealizadas(), puntoAtencion.getTipoPuntoAtencion(), puntoAtencion.getOficinaName());
         return "redirect:/puntosAtencion";
     }
 
-    @GetMapping("/puntosAtencion/{ubicacionGeografica}")
+    @GetMapping("/puntosAtencion/{ubicacionGeografica}/edit")
     public String puntoAtencionEditarForm(@PathVariable("ubicacionGeografica") String ubicacionGeografica, Model model) {
         PuntoAtencion puntoAtencion = puntosAtencionRepository.darPuntoAtencion(ubicacionGeografica);
         if (puntoAtencion != null) {
@@ -48,7 +48,7 @@ public class PuntosAtencionController {
 
     @PostMapping("/puntosAtencion/{ubicacionGeografica}/save")
     public String puntoAtencionEditarGuardar(@PathVariable("ubicacionGeografica") String ubicacionGeografica, @ModelAttribute PuntoAtencion puntoAtencion) {
-        puntosAtencionRepository.actualizarPuntoAtencion(puntoAtencion.getOperacionesRealizadas(), puntoAtencion.getTipoPuntoAtencion(), puntoAtencion.getOficina(), ubicacionGeografica);
+        puntosAtencionRepository.actualizarPuntoAtencion(puntoAtencion.getOperacionesRealizadas(), puntoAtencion.getTipoPuntoAtencion(), puntoAtencion.getOficinaName(), ubicacionGeografica);
         return "redirect:/puntosAtencion";
     }
 

@@ -35,7 +35,7 @@ public class OficinasController {
         return "redirect:/oficinas";
     }
 
-    @GetMapping("/oficinas/{nombre}")
+    @GetMapping("/oficinas/{nombre}/edit")
     public String oficinaEditarForm(@PathVariable("nombre") String nombre, Model model) {
         Oficina oficina = oficinaRepository.darOficina(nombre);
         if (oficina != null) {
