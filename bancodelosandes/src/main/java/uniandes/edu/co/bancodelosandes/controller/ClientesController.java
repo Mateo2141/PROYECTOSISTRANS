@@ -30,7 +30,7 @@ public class ClientesController {
 
     @PostMapping("cliente/new/save")
     public String clienteGuardar(@ModelAttribute Cliente cliente) {
-        clienteRepository.insertarCliente(cliente.getNumIdentificacion(), cliente.getPersona(), cliente.getUbigeografica(), cliente.getUsuario());
+        clienteRepository.insertarCliente(cliente.getNumIdentificacion(), cliente.getTipoPersona(), cliente.getUbicacionGeografica(), cliente.getUsuario());
         return "redirect:/clientes";
     }
 
@@ -47,7 +47,7 @@ public class ClientesController {
 
     @PostMapping("/clientes/{numIdentificacion}/save")
     public String clienteEditarGuardar(@PathVariable("numIdentificacion") String numIdentificacion, @ModelAttribute Cliente cliente) {
-        clienteRepository.actualizarCliente(cliente.getPersona(), cliente.getUbigeografica(), cliente.getUsuario(), numIdentificacion);
+        clienteRepository.actualizarCliente(cliente.getTipoPersona(), cliente.getUbicacionGeografica(), cliente.getUsuario(), numIdentificacion);
         return "redirect:/clientes";
     }
 

@@ -24,7 +24,7 @@
                 <tr>
                     <td th:text="${cliente.numIdentificacion}"></td>
                     <td th:text="${cliente.tipoPersona}"></td>
-                    <td th:text="${cliente.ubicacionGeografica}"></td>
+                    <td th:text="${cliente.ubicacionGeografica.ubicacionGeografica}"></td>
                     <td>
                         <a th:href="@{clientes/{numIdentificacion}/edit(numIdentificacion=${cliente.numIdentificacion})}">
                             Editar

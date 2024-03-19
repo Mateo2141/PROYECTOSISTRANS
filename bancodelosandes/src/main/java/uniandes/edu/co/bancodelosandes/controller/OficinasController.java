@@ -29,7 +29,7 @@ public class OficinasController {
         return "oficinaNuevo";
     }
 
-    @PostMapping("oficina/new/save")
+    @PostMapping("oficinas/new/save")
     public String oficinaGuardar(@ModelAttribute Oficina oficina) {
         oficinaRepository.insertarOficina(oficina.getNombre(), oficina.getNumPuntosAtencion(), oficina.getDireccion(), oficina.getHorario());
         return "redirect:/oficinas";
@@ -46,7 +46,7 @@ public class OficinasController {
         }
     }
 
-    @PostMapping("/oficinas/{nombre}/save")
+    @PostMapping("/oficinas/{nombre}/edit/save")
     public String oficinaEditarGuardar(@PathVariable("nombre") String nombre, @ModelAttribute Oficina oficina) {
         oficinaRepository.actualizarOficina(oficina.getNumPuntosAtencion(), oficina.getDireccion(), oficina.getHorario(), nombre);
         return "redirect:/oficinas";

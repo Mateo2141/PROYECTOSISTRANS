@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import uniandes.edu.co.bancodelosandes.modelo.TipoIdentificacion;
 import uniandes.edu.co.bancodelosandes.modelo.Usuario;
 import uniandes.edu.co.bancodelosandes.repositorio.UsuarioRepository;
 
@@ -29,13 +28,13 @@ public class UsuariosController {
         return "usuarioNuevo";
     }
 
-    @PostMapping("usuario/new/save")
+    @PostMapping("/usuarios/new/save")
     public String usuarioGuardar(@ModelAttribute Usuario usuario) {
         usuarioRepository.insertarUsuario(usuario.getTipoIdentificacion(), usuario.getNumIdentificacion(), usuario.getContrasena(), usuario.getNombre(), usuario.getApellido(), usuario.getNacionalidad(), usuario.getDireccion(), usuario.getEmail(), usuario.getTelefono(), usuario.getCiudad(), usuario.getDepartamento(), usuario.getCodigoPostal());
         return "redirect:/usuarios";
     }
 
-    @GetMapping("/usuarios/{numIdentificacion}")
+    @GetMapping("/usuarios/{numIdentificacion}/edit")
     public String usuarioEditarForm(@PathVariable("numIdentificacion") String numIdentificacion, Model model) {
         Usuario usuario = usuarioRepository.darUsuario(numIdentificacion);
         if (usuario != null) {
@@ -46,7 +45,7 @@ public class UsuariosController {
         }
     }
 
-    @PostMapping("/usuarios/{numIdentificacion}/save")
+    @PostMapping("/usuarios/{numIdentificacion}/edit/save")
     public String usuarioEditarGuardar(@PathVariable("numIdentificacion") String numIdentificacion, @ModelAttribute Usuario usuario) {
         usuarioRepository.actualizarUsuario(usuario.getContrasena(), usuario.getNombre(), usuario.getApellido(), usuario.getNacionalidad(), usuario.getDireccion(), usuario.getEmail(), usuario.getTelefono(), usuario.getCiudad(), usuario.getDepartamento(), usuario.getCodigoPostal(), numIdentificacion);
         return "redirect:/usuarios";

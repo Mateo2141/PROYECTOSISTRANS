@@ -28,7 +28,7 @@ public class PrestamosController {
         return "prestamoNuevo";
     }
 
-    @PostMapping("prestamo/new/save")
+    @PostMapping("/prestamo/new/save")
     public String prestamoGuardar(@ModelAttribute Prestamo prestamo) {
         prestamosRepository.insertarPrestamo(prestamo.getId(), prestamo.getTipoPrestamo(), prestamo.getEstadoPrestamo(), prestamo.getMonto(), prestamo.getInteres(), prestamo.getNumCuotas(), prestamo.getDiaPago(), prestamo.getValorCuota());
         return "redirect:/prestamos";
@@ -45,7 +45,7 @@ public class PrestamosController {
         }
     }
 
-    @PostMapping("/prestamos/{id}/save")
+    @PostMapping("/prestamos/{id}/edit/save")
     public String prestamoEditarGuardar(@PathVariable("id") Long id, @ModelAttribute Prestamo prestamo) {
         prestamosRepository.actualizarPrestamo(prestamo.getTipoPrestamo(), prestamo.getEstadoPrestamo(), prestamo.getMonto(), prestamo.getInteres(), prestamo.getNumCuotas(), prestamo.getDiaPago(), prestamo.getValorCuota(), id);
         return "redirect:/prestamos";

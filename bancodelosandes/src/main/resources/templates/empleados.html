@@ -24,7 +24,7 @@
                 <tr>
                     <td th:text="${empleado.tipoEmpleado}"></td>
                     <td th:text="${empleado.numIdentificacion}"></td>
-                    <td th:text="${empleado.oficina}"></td>
+                    <td th:text="${empleado.oficina.nombre}"></td>
                     <td>
                         <a th:href="@{empleados/{numIdentificacion}/edit(numIdentificacion=${empleado.numIdentificacion})}">
                             Editar

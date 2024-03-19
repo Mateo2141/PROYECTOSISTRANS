@@ -45,11 +45,11 @@ public class Cliente {
         return numIdentificacion;
     }
 
-    public TipoPersona getPersona() {
+    public TipoPersona getTipoPersona() {
         return tipoPersona;
     }
 
-    public PuntoAtencion getUbigeografica() {
+    public PuntoAtencion getUbicacionGeografica() {
         return ubicacionGeografica;
     }
 
@@ -65,11 +65,11 @@ public class Cliente {
         this.usuario = usuario;
     }
 
-    public void setPersona(TipoPersona persona) {
+    public void setTipoPersona(TipoPersona persona) {
         this.tipoPersona = persona;
     }
 
-    public void setUbigeografica(PuntoAtencion ubigeografica) {
+    public void setUbicacionGeografica(PuntoAtencion ubigeografica) {
         this.ubicacionGeografica = ubigeografica;
     }
     

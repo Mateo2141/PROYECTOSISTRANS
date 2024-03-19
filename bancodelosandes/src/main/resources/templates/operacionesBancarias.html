@@ -28,7 +28,7 @@
                     <td th:text="${operacionbancaria.monto}"></td>
                     <td th:text="${operacionbancaria.fecha}"></td>
                     <td th:text="${operacionbancaria.hora}"></td>
-                    <td th:text="${operacionbancaria.ubicacionGeografica}"></td>
+                    <td th:text="${operacionbancaria.ubicacionGeografica.ubicacionGeografica}"></td>
                     <td>
                         <a th:href="@{operacionesBancarias/{id}/edit(id=${operacionbancaria.id})}">
                             Editar

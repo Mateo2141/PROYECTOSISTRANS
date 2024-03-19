@@ -25,8 +25,8 @@
                 <tr>
                     <td th:text="${operacionprestamo.id}"></td>
                     <td th:text="${operacionprestamo.tipoOperacion}"></td>
-                    <td th:text="${operacionprestamo.prestamo}"></td>
-                    <td th:text="${operacionprestamo.operacionBancaria}"></td>
+                    <td th:text="${operacionprestamo.prestamo.id}"></td>
+                    <td th:text="${operacionprestamo.operacionBancaria.id}"></td>
                     <td>
                         <a th:href="@{operacionesPrestamo/{id}/edit(id=${operacionprestamo.id})}">
                             Editar
@@ -41,6 +41,7 @@
 
         </table>
         <div>
+            <a th:href="@{/operacionesPrestamo/new}" class="btn btn-primary">Añadir operacion</a>
             <a th:href='@{/}' class="btn btn-primary">Volver Atrás</a>
         </div>
         <br/>

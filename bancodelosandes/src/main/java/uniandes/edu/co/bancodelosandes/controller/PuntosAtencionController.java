@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import uniandes.edu.co.bancodelosandes.modelo.Oficina;
 import uniandes.edu.co.bancodelosandes.modelo.PuntoAtencion;
 import uniandes.edu.co.bancodelosandes.repositorio.PuntoAtencionRepository;
 
@@ -25,11 +26,15 @@ public class PuntosAtencionController {
 
     @GetMapping("/puntosAtencion/new")
     public String puntoAtencionForm(Model model) {
-        model.addAttribute("puntoAtencion", new PuntoAtencion());
+        PuntoAtencion nuevoPunto = new PuntoAtencion();
+        if (nuevoPunto.getOficinaName() == null) {
+            nuevoPunto.setOficinaName(new Oficina()); 
+        }
+        model.addAttribute("puntoAtencion", nuevoPunto);
         return "puntoAtencionNuevo";
     }
 
-    @PostMapping("puntoAtencion/new/save")
+    @PostMapping("/puntosAtencion/new/save")
     public String puntoAtencionGuardar(@ModelAttribute PuntoAtencion puntoAtencion) {
         puntosAtencionRepository.insertarPuntoAtencion(puntoAtencion.getUbicacionGeografica(), puntoAtencion.getOperacionesRealizadas(), puntoAtencion.getTipoPuntoAtencion(), puntoAtencion.getOficinaName());
         return "redirect:/puntosAtencion";
@@ -46,7 +51,7 @@ public class PuntosAtencionController {
         }
     }
 
-    @PostMapping("/puntosAtencion/{ubicacionGeografica}/save")
+    @PostMapping("/puntosAtencion/{ubicacionGeografica}/edit/save")
     public String puntoAtencionEditarGuardar(@PathVariable("ubicacionGeografica") String ubicacionGeografica, @ModelAttribute PuntoAtencion puntoAtencion) {
         puntosAtencionRepository.actualizarPuntoAtencion(puntoAtencion.getOperacionesRealizadas(), puntoAtencion.getTipoPuntoAtencion(), puntoAtencion.getOficinaName(), ubicacionGeografica);
         return "redirect:/puntosAtencion";

@@ -16,6 +16,7 @@
                 <tr>
                     <th>Tipo De Identificacion</th>
                     <th>Numero De Identificacion</th>
+                    <th>Contraseña</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Nacionalidad</th>
@@ -32,6 +33,7 @@
                 <tr>
                     <td th:text="${usuario.tipoIdentificacion}"></td>
                     <td th:text="${usuario.numIdentificacion}"></td>
+                    <td th:text="${usuario.contrasena}"></td>
                     <td th:text="${usuario.nombre}"></td>
                     <td th:text="${usuario.apellido}"></td>
                     <td th:text="${usuario.nacionalidad}"></td>
@@ -58,6 +60,7 @@
 
         </table>
         <div>
+            <a th:href="@{/usuarios/new}" class="btn btn-primary">Añadir usuarios</a>
             <a th:href='@{/}' class="btn btn-primary">Volver Atrás</a>
         </div>
         <br/>

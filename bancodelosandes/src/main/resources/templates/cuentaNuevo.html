@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear cuenta</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+    </br>
+    <form th:action="@{/cuentas/new/save}" method="post">
+        <div th:replace="~{fragments/cuentaForm :: cuentaForm(titulo='Crear cuenta')}">
+            <label class="col-form-label">numIdentificacion:</label>
+            <input class="form-control" type="text" id="numIdentificacion" name="numIdentificacion" required th:if="${cuenta != null}" th:value="${cuenta.numIdentificacion != null ? cuenta.numIdentificacion.numIdentificacion : ''}" />
+            <input class="form-control" type="text" id="numIdentificacion" name="numIdentificacion" required th:unless="${cuenta != null}" />
+        </div>
+    </form>
+</body>
+</html>
